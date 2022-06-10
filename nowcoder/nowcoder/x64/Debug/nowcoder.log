@@ -1,4 +1,4 @@
 ﻿  test.c
-D:\VS 2022\Gitee_warehouse\bit_code\nowcoder\nowcoder\test.c(1584,2): warning C4013: “gets”未定义；假设外部返回 int
-D:\VS 2022\Gitee_warehouse\bit_code\nowcoder\nowcoder\test.c(1585,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  nowcoder.vcxproj -> D:\VS 2022\Gitee_warehouse\bit_code\nowcoder\x64\Debug\nowcoder.exe
+D:\VS 2022\GitHub_warehouse\C_PRACTICE\nowcoder\nowcoder\test.c(1658,2): warning C4013: “gets”未定义；假设外部返回 int
+D:\VS 2022\GitHub_warehouse\C_PRACTICE\nowcoder\nowcoder\test.c(1659,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  nowcoder.vcxproj -> D:\VS 2022\GitHub_warehouse\C_PRACTICE\nowcoder\x64\Debug\nowcoder.exe

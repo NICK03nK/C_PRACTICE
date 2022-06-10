@@ -1622,3 +1622,73 @@
 //	}
 //	return 0;
 //}
+
+
+
+
+//-----------------------------------------------
+//笨小猴的词汇量很小，所以每次做英语选择题的时候都很头疼。但是他找到了一种方法，经试验证明，用这种方法去选择选项的时候选对的几率非常大！
+//这种方法的具体描述如下：假设maxn是单词中出现次数最多的字母的出现次数，minn是单词中出现次数最少的字母的出现次数，
+//如果maxn - minn是一个质数，那么笨小猴就认为这是个Lucky Word，这样的单词很可能就是正确的答案
+//只有一行，是一个单词，其中只可能出现小写字母，并且长度小于100
+
+#include<string.h>
+#include<math.h>
+
+int Is_Prime(int n)
+{
+	if (n < 2)
+	{
+		return 0;
+	}
+	int i = 0;
+	for (i = 2; i <= sqrt(n); i++)
+	{
+		if (n % i == 0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main()
+{
+	char word[100] = { 0 };
+	gets(word);
+	int len = strlen(word);
+	char k = 0;
+	int maxn = 0;
+	int minn = len;
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < len; i++)
+	{
+		int count = 0;
+		k = word[i];
+		for (j = 0; j < len; j++)
+		{
+			if (word[j] == k)
+			{
+				count++;
+			}
+		}
+		if (count > maxn)
+		{
+			maxn = count;
+		}
+		if (count < minn)
+		{
+			minn = count;
+		}
+	}
+	if (Is_Prime(maxn - minn))
+	{
+		printf("Lucky Word\n%d\n", maxn - minn);
+	}
+	else
+	{
+		printf("No Answer\n0\n");
+	}
+	return 0;
+}
