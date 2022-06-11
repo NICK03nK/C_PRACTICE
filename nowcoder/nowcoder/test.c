@@ -1751,35 +1751,112 @@
 //-----------------------------------------------
 //假设你们社团要竞选社长，有两名候选人分别是A和B，社团每名同学必须并且只能投一票，最终得票多的人为社长
 //一行，一个字符，A或B或E，输出A表示A得票数多，输出B表示B得票数多，输出E表示二人得票数相等
+//
+//#include<string.h>
+//
+//int main()
+//{
+//	char arr[50] = { 0 };
+//	gets(arr);
+//	int len = strlen(arr);
+//	int count_A = 0;
+//	int count_B = 0;
+//	int i = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		if (arr[i] == 'A')
+//			count_A++;
+//		if (arr[i] == 'B')
+//			count_B++;
+//	}
+//	if (count_A > count_B)
+//	{
+//		printf("A\n");
+//	}
+//	else if (count_A < count_B)
+//	{
+//		printf("B\n");
+//	}
+//	else
+//	{
+//		printf("E\n");
+//	}
+//	return 0;
+//}
 
-#include<string.h>
 
-int main()
-{
-	char arr[50] = { 0 };
-	gets(arr);
-	int len = strlen(arr);
-	int count_A = 0;
-	int count_B = 0;
-	int i = 0;
-	for (i = 0; i < len; i++)
-	{
-		if (arr[i] == 'A')
-			count_A++;
-		if (arr[i] == 'B')
-			count_B++;
-	}
-	if (count_A > count_B)
-	{
-		printf("A\n");
-	}
-	else if (count_A < count_B)
-	{
-		printf("B\n");
-	}
-	else
-	{
-		printf("E\n");
-	}
-	return 0;
-}
+
+
+//-----------------------------------------------
+//给定长度为n的只有小写字母的字符串s，进行m次操作，每次将[l,r]范围内所有c1字符改成c2，输出操作完的字符串
+//第一行两个数n,m
+//第二行一个字符串s
+//之后m行，每行两个数l r两个字符c1 c2
+//
+//int main()
+//{
+//	int n = 0;
+//	int m = 0;
+//	scanf("%d %d", &n, &m);
+//	char str[10] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf(" %c", &str[i]);
+//	}
+//	for (i = 0; i < m; i++)
+//	{
+//		int l = 0;
+//		int r = 0;
+//		char c1 = 0;
+//		char c2 = 0;
+//		scanf("%d %d %c %c", &l, &r, &c1, &c2);
+//		int j = 0;
+//		for (j = l - 1; j <= r - 1; j++)
+//		{
+//			if (str[j] == c1)
+//			{
+//				str[j] = c2;
+//			}
+//		}
+//	}
+//	puts(str);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//规定一种对于复合词的简写方式为只保留每个组成单词的首字母，并将首字母大写后再连接在一起
+//比如 “College English Test”可以简写成“CET”，“Computer Science”可以简写为“CS”，“I am Bob”简写为“IAB”
+//输入一个长复合词（组成单词数 sum, sum\geq1且sum\leq100sum, sum≥1且sum≤100, 每个单词长度len, len\geq1且len\leq50len, len≥1且len≤50），请你输出它的简写
+//
+//#include<string.h>
+//
+//int main()
+//{
+//	char str[5000] = { 0 };
+//	char cpw[5000] = { 0 };
+//	gets(str);
+//	int len = strlen(str);
+//	int i = 0;
+//	int j = 0;
+//	cpw[j++] = str[i];
+//	for (i = 1; i < len; i++)
+//	{
+//		if (str[i - 1] == ' ')
+//		{
+//			cpw[j++] = str[i];
+//		}
+//	}
+//	for (i = 0; i < j; i++)
+//	{
+//		if (cpw[i] >= 'a' && cpw[i] <= 'z')
+//		{
+//			cpw[i] -= 32;
+//		}
+//	}
+//	puts(cpw);
+//	return 0;
+//}
