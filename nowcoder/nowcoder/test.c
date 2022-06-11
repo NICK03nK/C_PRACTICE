@@ -1631,64 +1631,155 @@
 //这种方法的具体描述如下：假设maxn是单词中出现次数最多的字母的出现次数，minn是单词中出现次数最少的字母的出现次数，
 //如果maxn - minn是一个质数，那么笨小猴就认为这是个Lucky Word，这样的单词很可能就是正确的答案
 //只有一行，是一个单词，其中只可能出现小写字母，并且长度小于100
+//
+//#include<string.h>
+//#include<math.h>
+//
+//int Is_Prime(int n)
+//{
+//	if (n < 2)
+//	{
+//		return 0;
+//	}
+//	int i = 0;
+//	for (i = 2; i <= sqrt(n); i++)
+//	{
+//		if (n % i == 0)
+//		{
+//			return 0;
+//		}
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char word[100] = { 0 };
+//	gets(word);
+//	int len = strlen(word);
+//	char k = 0;
+//	int maxn = 0;
+//	int minn = len;
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		int count = 0;
+//		k = word[i];
+//		for (j = 0; j < len; j++)
+//		{
+//			if (word[j] == k)
+//			{
+//				count++;
+//			}
+//		}
+//		if (count > maxn)
+//		{
+//			maxn = count;
+//		}
+//		if (count < minn)
+//		{
+//			minn = count;
+//		}
+//	}
+//	if (Is_Prime(maxn - minn))
+//	{
+//		printf("Lucky Word\n%d\n", maxn - minn);
+//	}
+//	else
+//	{
+//		printf("No Answer\n0\n");
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//对于一个较大的整数 N(1<=N<=2,000,000,000)
+//比如 980364535，我们常常需要一位一位数这个数字是几位数，但是如果在这 个数字每三位加一个逗号，它会变得更加易于朗读
+//因此，这个数字加上逗号成如下的模样：980, 364, 535
+//
+//#include<string.h>
+//
+//void reverse(char* p)
+//{
+//	int len = strlen(p);
+//	int left = 0;
+//	int right = len - 1;
+//	while (left < right)
+//	{
+//		char tmp = p[left];
+//		p[left] = p[right];
+//		p[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//
+//void separate_data(char* p1, char* p2)
+//{
+//	int len = strlen(p1);
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		if ((i != 0) && (i % 3 == 0))
+//		{
+//			p2[j++] = ',';
+//		}
+//		p2[j++] = p1[i];
+//	}
+//}
+//
+//int main()
+//{
+//	char data1[20] = { 0 };
+//	char data2[20] = { 0 };
+//	gets(data1);
+//	reverse(data1);
+//	separate_data(data1, data2);
+//	reverse(data2);
+//	puts(data2);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//假设你们社团要竞选社长，有两名候选人分别是A和B，社团每名同学必须并且只能投一票，最终得票多的人为社长
+//一行，一个字符，A或B或E，输出A表示A得票数多，输出B表示B得票数多，输出E表示二人得票数相等
 
 #include<string.h>
-#include<math.h>
-
-int Is_Prime(int n)
-{
-	if (n < 2)
-	{
-		return 0;
-	}
-	int i = 0;
-	for (i = 2; i <= sqrt(n); i++)
-	{
-		if (n % i == 0)
-		{
-			return 0;
-		}
-	}
-	return 1;
-}
 
 int main()
 {
-	char word[100] = { 0 };
-	gets(word);
-	int len = strlen(word);
-	char k = 0;
-	int maxn = 0;
-	int minn = len;
+	char arr[50] = { 0 };
+	gets(arr);
+	int len = strlen(arr);
+	int count_A = 0;
+	int count_B = 0;
 	int i = 0;
-	int j = 0;
 	for (i = 0; i < len; i++)
 	{
-		int count = 0;
-		k = word[i];
-		for (j = 0; j < len; j++)
-		{
-			if (word[j] == k)
-			{
-				count++;
-			}
-		}
-		if (count > maxn)
-		{
-			maxn = count;
-		}
-		if (count < minn)
-		{
-			minn = count;
-		}
+		if (arr[i] == 'A')
+			count_A++;
+		if (arr[i] == 'B')
+			count_B++;
 	}
-	if (Is_Prime(maxn - minn))
+	if (count_A > count_B)
 	{
-		printf("Lucky Word\n%d\n", maxn - minn);
+		printf("A\n");
+	}
+	else if (count_A < count_B)
+	{
+		printf("B\n");
 	}
 	else
 	{
-		printf("No Answer\n0\n");
+		printf("E\n");
 	}
 	return 0;
 }
