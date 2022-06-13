@@ -1993,24 +1993,174 @@
 //1.每条短信收费0.1元
 //2.每条短息的字数不超过60字，如果超过60字，将按照0.2元的价格收费
 //牛牛这个月发了 n 条短信，请问牛牛一共要缴多少短信费
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int message = 0;
+//	double cost = 0.0;
+//	int i = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d", &message);
+//		cost += 0.1;
+//		if (message > 60)
+//		{
+//			cost += 0.1;
+//		}
+//	}
+//	printf("%.1lf\n", cost);
+//	return 0;
+//	return 0;
+//}
 
-int main()
-{
-	int n = 0;
-	scanf("%d", &n);
-	int message = 0;
-	double cost = 0.0;
-	int i = 0;
-	for (i = 0; i < n; i++)
-	{
-		scanf("%d", &message);
-		cost += 0.1;
-		if (message > 60)
-		{
-			cost += 0.1;
-		}
-	}
-	printf("%.1lf\n", cost);
-	return 0;
-	return 0;
-}
+
+
+
+//-----------------------------------------------
+//牛牛刚刚学了素数的定义：素数值指在大于1的自然数中，除了1和它本身以外不再有其他因数的自然数
+//牛牛想知道在[l, r] 范围内全部素数的和
+//
+//#include<math.h>
+//
+//int Is_Prime(int n)
+//{
+//	int i = 0;
+//	for (i = 2; i <= sqrt(n); i++)
+//	{
+//		if (n % i == 0)
+//		{
+//			return 0;
+//		}
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int l = 0;
+//	int r = 0;
+//	scanf("%d %d", &l, &r);
+//	int sum = 0;
+//	int i = 0;
+//	for (i = l; i <= r; i++)
+//	{
+//		int ret = Is_Prime(i);
+//		if (ret)
+//		{
+//			sum += i;
+//		}
+//	}
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//hxy考试试题第三题
+//字符串保留数字字符，去重，排序
+//
+//#include<string.h>
+//#include<stdlib.h>
+//
+//int cmp_char(const void* e1, const void* e2)
+//{
+//	return((*(char*)e1 - '0') - (*(char*)e2 - '0'));
+//}
+//
+//int main()
+//{
+//	char arr1[50] = { 0 };
+//	char arr2[50] = { 0 };
+//	gets(arr1);
+//	int len1 = strlen(arr1);
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < len1; i++)
+//	{
+//		if (arr1[i] >= '0' && arr1[i] <= '9')
+//		{
+//			arr2[j++] = arr1[i];
+//		}
+//	}
+//	int len2 = strlen(arr2);
+//	char arr3[50] = { 0 };
+//	int k = 0;
+//	for (i = 0; i < len2; i++)
+//	{
+//		int flag = 1;
+//		for (j = 0; j < k; j++)
+//		{
+//			if (arr3[j] == arr2[i])
+//			{
+//				flag = 0;
+//				break;
+//			}
+//		}
+//		if (flag)
+//		{
+//			arr3[k++] = arr2[i];
+//		}
+//	}
+//	qsort(arr3, strlen(arr3), sizeof(arr3[0]), cmp_char);
+//	puts(arr3);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------<***>
+//牛牛刚学会数组不久，他拿到两个数组 a 和 b，询问 b 的哪一段连续子数组之和与数组 a 之和最接近。
+//如果有多个子数组之和同样接近，输出起始点最靠左的数组。
+//
+//#include<math.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	int m = 0;
+//	scanf("%d %d", &n, &m);
+//	int arr1[50] = { 0 };
+//	int arr2[50] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d", &arr1[i]);
+//	}
+//	for (i = 0; i < m; i++)
+//	{
+//		scanf("%d", &arr2[i]);
+//	}
+//	int min = 9999999;
+//	int sum1 = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		sum1 += arr1[i];
+//	}
+//	int left = 0;
+//	int right = 0;
+//	for (i = 0; i < m; i++)
+//	{
+//		int sum2 = 0;
+//		int j = 0;
+//		for (j = i; j < m; j++)
+//		{
+//			sum2 += arr2[j];
+//			if (abs(sum2 - sum1) < min)
+//			{
+//				min = abs(sum2 - sum1);
+//				left = i;
+//				right = j;
+//			}
+//		}
+//	}
+//	for (i = left; i <= right; i++)
+//	{
+//		printf("%d ", arr2[i]);
+//	}
+//	return 0;
+//}
