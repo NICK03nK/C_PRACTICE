@@ -2164,3 +2164,137 @@
 //	}
 //	return 0;
 //}
+
+
+
+
+//-----------------------------------------------
+//现在给出一个素数，这个素数满足两点：
+//1、  只由1 - 9组成，并且每个数只出现一次，如13, 23, 1289。
+//2、  位数从高到低为递减或递增，如2459，87631。
+//请你判断一下，这个素数的回文数是否为素数（13的回文数是131, 127的回文数是12721）
+//
+//#include<math.h>
+//
+//int Is_Prime(long long n)
+//{
+//	int i = 0;
+//	for (i = 2; i <= sqrt(n); i++)
+//	{
+//		if (n % i == 0)
+//		{
+//			return 0;
+//		}
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	long long t = 0;
+//	scanf("%d", &t);
+//	int count = 0;
+//	long long tmp = t;
+//	while (tmp)
+//	{
+//		count++;
+//		tmp /= 10;
+//	}
+//	long long num = t * pow(10, (count - 1));
+//	int i = 0;
+//	int j = 0;
+//	for (i = 1, j = count - 2; i < count && j >= 0; i++, j--)
+//	{
+//		num += ((long long)(t / pow(10, i)) % 10) * (long long)pow(10, j);
+//	}
+//	if (Is_Prime(num))
+//	{
+//		printf("prime\n");
+//	}
+//	else
+//	{
+//		printf("noprime\n");
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//若一个数（首位不为零）从左向右读与从右向左读都一样，我们就将其称之为回文数。
+//例如：给定一个10进制数56，将56加65（即把56从右向左读），得到121是一个回文数。
+//又如：对于10进制数87：
+//STEP1：87 + 78 = 165                  STEP2：165 + 561 = 726
+//STEP3：726 + 627 = 1353                STEP4：1353 + 3531 = 4884
+//在这里的一步是指进行了一次N进制的加法，上例最少用了4步得到回文数4884。
+//写一个程序，给定一个N（2 <= N <= 10或N = 16）进制数M（100位之内），求最少经过几步可以得到回文数。
+//如果在30步以内（包含30步）不可能得到回文数，则输出“Impossible!”
+//进制N > 10时，使用大写'A'字母表示10，'B'表示11, ..., 'E'表示16
+
+#include<math.h>
+
+long long convert_10(long long n, long long N)
+{
+	long long ret = 0;
+	int count = 1;
+	long long tmp = n;
+	while (tmp /= 10)
+	{
+		count++;
+	}
+	int i = 0;
+	for (i = count - 1; i >= 0; i--)
+	{
+		ret += ((long long)(n / pow(10, i)) % 10) * (long long)pow(N, i);
+	}
+	return ret;
+}
+
+long long convert_N(long long n, long long N)
+{
+	if (n > N - 1)
+	{
+		return convert_N(n / N, N) * 10 + n % N;
+	}
+	return n % N;
+}
+
+int main()
+{
+	long long N = 0;
+	scanf("%lld", &N);
+	long long num = 0;
+	scanf("%lld", &num);
+	long long value = num;
+	int count = 0;
+	while (count <= 30)
+	{
+		count++;
+		long long ret1 = value;
+		long long ret2 = 0;
+		long long tmp = ret1;
+		while (tmp)
+		{
+			ret2 = ret2 * 10 + tmp % 10;
+			tmp /= 10;
+		}
+		long long key1 = convert_10(ret1, N);
+		long long key2 = convert_10(ret2, N);
+		long long ret3 = convert_N(key1 + key2, N);
+		long long ret4 = 0;
+		tmp = ret3;
+		while (tmp)
+		{
+			ret4 = ret4 * 10 + tmp % 10;
+			tmp /= 10;
+		}
+		if (ret4 == ret3)
+		{
+			break;
+		}
+		value = ret3;
+	}
+	printf("STEP=%d\n", count);
+	return 0;
+}

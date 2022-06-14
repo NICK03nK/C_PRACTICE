@@ -1,2 +1,3 @@
 ﻿  test.c
+D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder\nowcoder\test.c(2249,62): warning C4244: “函数”: 从“__int64”转换到“double”，可能丢失数据
   nowcoder.vcxproj -> D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder\x64\Debug\nowcoder.exe
