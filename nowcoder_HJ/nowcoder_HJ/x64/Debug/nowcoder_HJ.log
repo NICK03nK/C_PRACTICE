@@ -1,5 +1,2 @@
 ﻿  test.c
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(21,22): warning C4244: “return”: 从“__int64”转换到“int”，可能丢失数据
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(14,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(28,2): warning C4013: “gets”未定义；假设外部返回 int
   nowcoder_HJ.vcxproj -> D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\x64\Debug\nowcoder_HJ.exe
