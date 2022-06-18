@@ -124,3 +124,114 @@
 //	}
 //	return 0;
 //}
+
+
+
+
+//-----------------------------------------------
+//输入一个字符串，请按长度为8拆分每个输入字符串并进行输出；
+//长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。
+//连续输入字符串(每个字符串长度小于等于100)
+//依次输出所有分割后的长度为8的新字符串
+//
+//#include<string.h>
+//
+//int main()
+//{
+//    char str[100] = { 0 };
+//    while (scanf("%8s", str) != EOF)
+//    {
+//        int len = 8 - strlen(str);
+//        printf("%s", str);
+//        for (int i = 0; i < len; i++)
+//            printf("0");
+//        printf("\n");
+//    }
+//}
+//
+//int main()
+//{
+//	char str[100] = { 0 };
+//	while (scanf("%s", str) != EOF)
+//	{
+//		int len = strlen(str);
+//		if (len < 8)
+//		{
+//			printf("%s", str);
+//			int i = 0;
+//			for (i = 0; i < 8 - len; i++)
+//			{
+//				printf("0");
+//			}
+//			printf("\n");
+//		}
+//		else
+//		{
+//			char* left = str;
+//			char* right = str;
+//			while (*right != '\0')
+//			{
+//				while ((*right != '\0') && ((right - left) <= 7))
+//				{
+//					printf("%c", *right);
+//					right++;
+//				}
+//				int i = 0;
+//				for (i = 0; i < 8 - (right - left); i++)
+//				{
+//					printf("0");
+//				}
+//				printf("\n");
+//				left = right;
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//写出一个程序，接受一个十六进制的数，输出该数值的十进制表示。
+//输入一个十六进制的数值字符串。
+//输出该数值的十进制字符串。不同组的测试用例用\n隔开。
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%x", &n);
+//	printf("%d\n", n);
+//	return 0;
+//}
+//
+//#include<string.h>
+//#include<math.h>
+//
+//int convert_16_10(char* p)
+//{
+//	int len = strlen(p);
+//	int key = 0;
+//	int i = 0;
+//	for (i = len - 1; i >= 2; i--)
+//	{
+//		if (p[i] >= 'A' && p[i] <= 'F')
+//		{
+//			key += (int)((p[i] - 55) * pow(16, len - i - 1));
+//		}
+//		else
+//		{
+//			key += (int)((p[i] - '0') * pow(16, len - i - 1));
+//		}
+//	}
+//	return key;
+//}
+//
+//int  main()
+//{
+//	char num[50] = { 0 };
+//	scanf("%s", num);
+//	int ret = convert_16_10(num);
+//	printf("%d\n", ret);
+//	return 0;
+//}
