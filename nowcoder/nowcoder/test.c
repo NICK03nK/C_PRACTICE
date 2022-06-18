@@ -2270,7 +2270,7 @@
 //	{
 //		for (i = len - 1; i >= 0; i--)
 //		{
-//			key += (long long)(p[i] - '0') * pow(2, len - i - 1);
+//			key += (long long)((p[i] - '0') * pow(2, len - i - 1));
 //		}
 //	}
 //	else if (N == 16)
