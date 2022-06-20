@@ -287,3 +287,136 @@
 //	printf("%d\n", ret);
 //	return 0;
 //}
+
+
+
+
+//-----------------------------------------------
+//数据表记录包含表索引index和数值value（int范围的正整数），请对表索引相同的记
+//录进行合并，即将相同索引的数值进行求和运算，输出按照index值升序进行输出。
+//
+//0 <= index <= 11111111
+//1 <= value <= 100000
+//
+//先输入键值对的个数n（1 <= n <= 500）
+//接下来n行每行输入成对的index和value值，以空格隔开
+//
+//输出合并后的键值对（多行）
+//
+//#include<stdlib.h>
+//
+//int Remove_Duplication(int* p1, int* p2, int n)
+//{
+//	int i = 0;
+//	int j = 0;
+//	int k = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		int flag = 1;
+//		for (j = 0; j < k; j++)
+//		{
+//			if (p2[j] == p1[i])
+//			{
+//				flag = 0;
+//				break;
+//			}
+//		}
+//		if (flag)
+//		{
+//			p2[k++] = p1[i];
+//		}
+//	}
+//	return k;
+//}
+//
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int index1[500] = { 0 };
+//	int value1[500] = { 0 };
+//	int index2[500] = { 0 };
+//	int value2[500] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d %d", &index1[i], &value1[i]);
+//	}
+//	int size = Remove_Duplication(index1, index2, n);
+//	qsort(index2, size, sizeof(index2[0]), cmp_int);
+//	int j = 0;
+//	for (i = 0; i < size; i++)
+//	{
+//		for (j = 0; j < n; j++)
+//		{
+//			if (index1[j] == index2[i])
+//			{
+//				value2[i] += value1[j];
+//			}
+//		}
+//		printf("%d %d\n", index2[i], value2[i]);
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//输入一个 int 型整数，按照从右向左的阅读顺序，返回一个不含重复数字的新的整数。
+//保证输入的整数最后一位不是 0 。
+//
+//数据范围：1≤n≤10^8
+//
+//输入一个int型整数
+//
+//按照从右向左的阅读顺序，返回一个不含重复数字的新的整数
+
+#include<math.h>
+
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int num1[9] = { 0 };
+	int count = 0;
+	int tmp = n;
+	int i = 0;
+	while (tmp)
+	{
+		count++;
+		num1[i++] = tmp % 10;
+		tmp /= 10;
+	}
+	int num2[9] = { 0 };
+	int j = 0;
+	int sz = 0;
+	for (i = 0; i <= count - 1; i++)
+	{
+		int flag = 1;
+		for (j = 0; j <= sz; j++)
+		{
+			if (num2[j] == num1[i])
+			{
+				flag = 0;
+				break;
+			}
+		}
+		if (flag)
+		{
+			num2[sz++] = num1[i];
+		}
+	}
+	int ret = 0;
+	for (i = sz - 1; i >= 0; i--)
+	{
+		ret += num2[i] * pow(10, sz - i - 1);
+	}
+	printf("%d\n", ret);
+	return 0;
+}

@@ -1,2 +1,3 @@
 ﻿  test.c
+D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(418,18): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
   nowcoder_HJ.vcxproj -> D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\x64\Debug\nowcoder_HJ.exe
