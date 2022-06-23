@@ -1,3 +1,2 @@
 ﻿  test.c
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(765,2): warning C4013: “gets”未定义；假设外部返回 int
   nowcoder_HJ.vcxproj -> D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\x64\Debug\nowcoder_HJ.exe

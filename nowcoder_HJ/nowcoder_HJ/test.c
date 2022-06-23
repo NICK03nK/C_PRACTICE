@@ -794,67 +794,183 @@
 //数据范围：输入的字符串长度满足：1≤n≤100
 //输入描述：一组字符串。
 //输出描述：如果符合要求输出：OK，否则输出NG
+//
+//#include<string.h>
+//
+//int Judge_PW(char* p)
+//{
+//	char pw_cpy[100] = { 0 };
+//	strcpy(pw_cpy, p);
+//	int len = strlen(p);
+//	if (len <= 8)
+//	{
+//		return 0;
+//	}
+//	int num = 0;
+//	int ltr_c = 0;
+//	int ltr_l = 0;
+//	int otr = 0;
+//	int i = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		if (p[i] >= '0' && p[i] <= '9')
+//		{
+//			num = 1;
+//		}
+//		else if (p[i] >= 'A' && p[i] <= 'Z')
+//		{
+//			ltr_c = 1;
+//		}
+//		else if (p[i] >= 'a' && p[i] <= 'z')
+//		{
+//			ltr_l = 1;
+//		}
+//		else
+//		{
+//			otr = 1;
+//		}
+//	}
+//	if (num + ltr_c + ltr_l + otr < 3)
+//	{
+//		return 0;
+//	}
+//	int j = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		for (j = i + 1; j < len; j++)
+//		{
+//			if ((pw_cpy[j] == p[i]) && (pw_cpy[j + 1] == p[i + 1]) && (pw_cpy[j + 2] == p[i + 2]))
+//			{
+//				return 0;
+//			}
+//		}
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char pw[100] = { 0 };
+//	while (gets(pw) != NULL)
+//	{
+//		if (Judge_PW(pw))
+//		{
+//			printf("OK\n");
+//		}
+//		else
+//		{
+//			printf("NG\n");
+//		}
+//	}
+//	return 0;
+//}
 
-#include<string.h>
 
-int Judge_PW(char* p)
-{
-	char pw_cpy[100] = { 0 };
-	strcpy(pw_cpy, p);
-	int len = strlen(p);
-	if (len <= 8)
-	{
-		return 0;
-	}
-	int num = 0;
-	int ltr_c = 0;
-	int ltr_l = 0;
-	int otr = 0;
-	int i = 0;
-	for (i = 0; i < len; i++)
-	{
-		if (p[i] >= '0' && p[i] <= '9')
-		{
-			num = 1;
-		}
-		else if (p[i] >= 'A' && p[i] <= 'Z')
-		{
-			ltr_c = 1;
-		}
-		else if (p[i] >= 'a' && p[i] <= 'z')
-		{
-			ltr_l = 1;
-		}
-		else
-		{
-			otr = 1;
-		}
-	}
-	if (num + ltr_c + ltr_l + otr < 3)
-	{
-		return 0;
-	}
-	//查重
-	int j=0
-	for (i = 0; i < len; i++)
-	{
 
-	}
-}
+
+//-----------------------------------------------
+//现在有一种密码变换算法。
+//九键手机键盘上的数字与字母的对应： 1--1， abc--2, def--3, ghi--4, jkl--5, mno--6, pqrs--7, tuv--8 wxyz--9, 0--0，
+// 把密码中出现的小写字母都变成九键键盘对应的数字，如：a 变成 2，x 变成 9.
+//而密码中出现的大写字母则变成小写之后往后移一位，如：X ，先变成小写，再往后移一位，变成了 y ，例外：Z 往后移是 a 。
+//数字和其它的符号都不做变换。
+//数据范围： 输入的字符串长度满足：1≤n≤100
+//
+//输入一组密码，长度不超过100个字符。
+//
+//输出密码变换后的字符串
+//
+//#include<string.h>
+//
+//int main()
+//{
+//	char pw[100] = { 0 };
+//	gets(pw);
+//	int i = 0;
+//	for (i = 0; i < strlen(pw); i++)
+//	{
+//		if (pw[i] >= 'A' && pw[i] <= 'Z')
+//		{
+//			if (pw[i] == 'Z')
+//			{
+//				pw[i] = 'a';
+//			}
+//			else
+//			{
+//				pw[i] += 33;
+//			}
+//		}
+//		else
+//		{
+//			if (pw[i] >= 'a' && pw[i] <= 'c')
+//			{
+//				pw[i] = '2';
+//			}
+//			else if (pw[i] >= 'd' && pw[i] <= 'f')
+//			{
+//				pw[i] = '3';
+//			}
+//			else if (pw[i] >= 'g' && pw[i] <= 'i')
+//			{
+//				pw[i] = '4';
+//			}
+//			else if (pw[i] >= 'j' && pw[i] <= 'l')
+//			{
+//				pw[i] = '5';
+//			}
+//			else if (pw[i] >= 'm' && pw[i] <= 'o')
+//			{
+//				pw[i] = '6';
+//			}
+//			else if (pw[i] >= 'p' && pw[i] <= 's')
+//			{
+//				pw[i] = '7';
+//			}
+//			else if (pw[i] >= 't' && pw[i] <= 'v')
+//			{
+//				pw[i] = '8';
+//			}
+//			else if (pw[i] >= 'w' && pw[i] <= 'z')
+//			{
+//				pw[i] = '9';
+//			}
+//		}
+//	}
+//	puts(pw);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//某商店规定：三个空汽水瓶可以换一瓶汽水，允许向老板借空汽水瓶（但是必须要归还）。
+//小张手上有n个空汽水瓶，她想知道自己最多可以喝到多少瓶汽水。
+//数据范围：输入的正整数满足：1≤n≤100
+//
+//注意：本题存在多组输入。输入的 0 表示输入结束，并不用输出结果。
+//
+//输入文件最多包含 10 组测试数据，每个数据占一行，仅包含一个正整数 n（ 1 <= n <= 100 ），
+//表示小张手上的空汽水瓶数。n = 0 表示输入结束，你的程序不应当处理这一行。
+//
+//对于每组测试数据，输出一行，表示最多可以喝的汽水瓶数。如果一瓶也喝不到，输出0。
 
 int main()
 {
-	char pw[100] = { 0 };
-	while (gets(pw) != NULL)
+	int n = 0;
+	while (scanf("%d", &n), n != 0)
 	{
-		if (Judge_PW(pw))
+		int count = 0;
+		while (n >= 3)
 		{
-			printf("OK\n");
+			count += n / 3;
+			n = n / 3 + n % 3;
 		}
-		else
+		if ((n > 0) && (3 - n == 1))
 		{
-			printf("NG\n");
+			count++;
 		}
+		printf("%d\n", count);
 	}
 	return 0;
 }
