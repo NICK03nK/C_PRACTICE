@@ -1033,24 +1033,34 @@
 //数据范围：输入的字符串长度满足：1≤n≤1000
 //输入描述：输入字符串
 //输出描述：输出字符串
-
-#include<string.h>
-#include<stdlib.h>
-
-int cmp_ltr(const void* e1, const void* e2)
-{
-	return *(char*)e1 - *(char*)e2;
-}
-
-void Sort(char* ps)
-{
-	qsort(ps, strlen(ps), sizeof(ps[0]), cmp_ltr);
-}
-
-int main()
-{
-	char str[1000] = { 0 };
-	gets(str);
-	Sort(str);
-	return 0;
-}
+//
+//#include<string.h>
+//
+//int main()
+//{
+//	char str[1001] = { 0 };
+//	gets(str);
+//	char ltr[1001] = { 0 };
+//	int index = 0;
+//	char i = 0;
+//	int j = 0;
+//	for (i = 'a'; i <= 'z'; i++)
+//	{
+//		for (j = 0; j < strlen(str); j++)
+//		{
+//			if ((str[j] == i) || ((str[j] + 32 == i) && (str[j] >= 'A' && str[j] <= 'Z')))
+//			{
+//				ltr[index++] = str[j];
+//			}
+//		}
+//	}
+//	for (j = 0, index = 0; j < strlen(str); j++)
+//	{
+//		if ((str[j] >= 'A' && str[j] <= 'Z') || (str[j] >= 'a' && str[j] <= 'z'))
+//		{
+//			str[j] = ltr[index++];
+//		}
+//	}
+//	puts(str);
+//	return 0;
+//}
