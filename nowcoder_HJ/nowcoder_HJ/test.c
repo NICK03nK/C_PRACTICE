@@ -1142,3 +1142,243 @@
 //	}
 //	return 0;
 //}
+
+
+
+
+//-----------------------------------------------
+//对输入的字符串进行加解密，并输出。
+//加密方法为：
+//当内容是英文字母时则用该英文字母的后一个字母替换，同时字母变换大小写, 如字母a时则替换为B；字母Z时则替换为a；
+//当内容是数字时则把该数字加1，如0替换1，1替换2，9替换0；
+//其他字符不做变化。
+//解密方法为加密的逆过程。
+//数据范围：输入的两个字符串长度满足：1≤n≤1000  ，保证输入的字符串都是只由大小写字母或者数字组成
+//输入描述：
+//第一行输入一串要加密的密码
+//第二行输入一串加过密的密码
+//输出描述：
+//第一行输出加密后的字符
+//第二行输出解密后的字符
+//
+//#include<string.h>
+//
+//void Encrypt(char* p)
+//{
+//	int i = 0;
+//	for (i = 0; i < strlen(p); i++)
+//	{
+//		if (p[i] >= 'A' && p[i] <= 'Z')
+//		{
+//			if (p[i] == 'Z')
+//			{
+//				p[i] = 'a';
+//			}
+//			else
+//			{
+//				p[i] += 33;
+//			}
+//		}
+//		else if (p[i] >= 'a' && p[i] <= 'z')
+//		{
+//			if (p[i] == 'z')
+//			{
+//				p[i] = 'A';
+//			}
+//			else
+//			{
+//				p[i] -= 31;
+//			}
+//		}
+//		else if (p[i] >= '0' && p[i] <= '9')
+//		{
+//			if (p[i] == '9')
+//			{
+//				p[i] = '0';
+//			}
+//			else
+//			{
+//				p[i] += 1;
+//			}
+//		}
+//	}
+//}
+//
+//void Decode(char* p)
+//{
+//	int i = 0;
+//	for (i = 0; i < strlen(p); i++)
+//	{
+//		if (p[i] >= 'A' && p[i] <= 'Z')
+//		{
+//			if (p[i] == 'A')
+//			{
+//				p[i] = 'z';
+//			}
+//			else
+//			{
+//				p[i] += 31;
+//			}
+//		}
+//		else if (p[i] >= 'a' && p[i] <= 'z')
+//		{
+//			if (p[i] == 'a')
+//			{
+//				p[i] = 'Z';
+//			}
+//			else
+//			{
+//				p[i] -= 33;
+//			}
+//		}
+//		else if (p[i] >= '0' && p[i] <= '9')
+//		{
+//			if (p[i] == '0')
+//			{
+//				p[i] = '9';
+//			}
+//			else
+//			{
+//				p[i] -= 1;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	char str1[1001] = { 0 };
+//	gets(str1);
+//	char str2[1001] = { 0 };
+//	gets(str2);
+//	Encrypt(str1);
+//	Decode(str2);
+//	puts(str1);
+//	puts(str2);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//对字符串中的所有单词进行倒排。
+//说明：
+//1、构成单词的字符只有26个大写或小写英文字母；
+//2、非构成单词的字符均视为单词间隔符；
+//3、要求倒排后的单词间隔符以一个空格表示；如果原字符串中相邻单词间有多个间隔符时，倒排转换后也只允许出现一个空格间隔符；
+//4、每个单词最长20个字母；
+//数据范围：字符串长度满足：1≤n≤10000
+//输入描述：
+//输入一行，表示用来倒排的句子
+//输出描述：
+//输出句子的倒排结果
+//
+//#include<string.h>
+//
+//void reverse(char* p, int left, int right)
+//{
+//	while (left < right)
+//	{
+//		char tmp = p[left];
+//		p[left] = p[right];
+//		p[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//
+//int main()
+//{
+//	char str[10001] = { 0 };
+//	gets(str);
+//	int left = 0;
+//	int right = 0;
+//	while (str[right] != '\0')
+//	{
+//		while ((str[right] >= 'A' && str[right] <= 'Z') || (str[right] >= 'a' && str[right] <= 'z'))
+//		{
+//			right++;
+//		}
+//		reverse(str, left, right - 1);
+//		while ((str[right] != '\0') && !((str[right] >= 'A' && str[right] <= 'Z') || (str[right] >= 'a' && str[right] <= 'z')))
+//		{
+//			right++;
+//		}
+//		left = right;
+//	}
+//	reverse(str, 0, strlen(str) - 1);
+//	int i = 0;
+//	for (i = 0; i < strlen(str); i++)
+//	{
+//		if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+//		{
+//			printf("%c", str[i]);
+//		}
+//		else if ((str[i + 1] >= 'A' && str[i + 1] <= 'Z') || (str[i + 1] >= 'a' && str[i + 1] <= 'z'))
+//		{
+//			printf(" ");
+//		}
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//Catcher是MCA国的情报员，他工作时发现敌国会用一些对称的密码进行通信，比如
+//像这些ABBA，ABA，A，123321，但是他们有时会在开始或结束时加入一些无关的
+//字符以防止别国破解。比如进行下列变化 ABBA->12ABBA, ABA->ABAKK, 123321->51233214。
+//因为截获的串太长了，而且存在多种可能的情况（abaaab可看作是aba, 或baaab的加密形式），
+//Cathcer的工作量实在是太大了，他只能向电脑高手求助，你能帮Catcher找出最长的有效密码串吗？
+//数据范围：字符串长度满足：1≤n≤2500
+//输入描述：
+//输入一个字符串（字符串的长度不超过2500）
+//输出描述：
+//返回有效密码串的最大长度
+
+#include<string.h>
+
+void reverse(char* p)
+{
+	int left = 0;
+	int right = strlen(p) - 1;
+	while (left < right)
+	{
+		char tmp = p[left];
+		p[left] = p[right];
+		p[right] = tmp;
+		left++;
+		right--;
+	}
+}
+
+int main()
+{
+	char str[2501] = { 0 };
+	gets(str);
+	int count = 0;
+	int i = 0;
+	for (i = 0; i < strlen(str); i++)
+	{
+		char tmp1[2501] = { 0 };
+		int j = 0;
+		for (j = 1; j <= strlen(str) - i; j++)
+		{
+			strncpy(tmp1, &str[i], j);
+			char tmp2[2501] = { 0 };
+			strcpy(tmp2, tmp1);
+			reverse(tmp2);
+			if (strcmp(tmp1, tmp2) == 0)
+			{
+				if (strlen(tmp1) > count)
+				{
+					count = strlen(tmp1);
+				}
+			}
+		}
+	}
+	printf("%d\n", count);
+	return 0;
+}
