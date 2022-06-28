@@ -1,5 +1,5 @@
 ﻿  test.c
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(1346,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(1360,2): warning C4013: “gets”未定义；假设外部返回 int
-D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(1377,14): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(1346,27): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(1360,5): warning C4013: “gets”未定义；假设外部返回 int
+D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\nowcoder_HJ\test.c(1363,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   nowcoder_HJ.vcxproj -> D:\VS 2022\GitHub_repository\C_PRACTICE\nowcoder_HJ\x64\Debug\nowcoder_HJ.exe

@@ -1326,7 +1326,7 @@
 
 
 
-//-----------------------------------------------
+//-----------------------------------------------<HJ_32>
 //Catcher是MCA国的情报员，他工作时发现敌国会用一些对称的密码进行通信，比如
 //像这些ABBA，ABA，A，123321，但是他们有时会在开始或结束时加入一些无关的
 //字符以防止别国破解。比如进行下列变化 ABBA->12ABBA, ABA->ABAKK, 123321->51233214。
@@ -1337,48 +1337,195 @@
 //输入一个字符串（字符串的长度不超过2500）
 //输出描述：
 //返回有效密码串的最大长度
+//
+//#include<string.h>
+//
+//void reverse(char* p)
+//{
+//    int left = 0;
+//    int right = strlen(p) - 1;
+//    while (left < right)
+//    {
+//        char tmp = p[left];
+//        p[left] = p[right];
+//        p[right] = tmp;
+//        left++;
+//        right--;
+//    }
+//}
+//
+//int main()
+//{
+//    char str[2501] = { 0 }, tmp1, tmp2;
+//    gets(str);
+//    int count = 0;
+//    int i = 0;
+//    int len = strlen(str);
+//    char strre[2501] = { 0 };
+//    strcpy(strre, str);
+//    reverse(strre);
+//    for (int i = 0; i < len; i++)
+//    {
+//        for (int j = 0; j <= i; j++)
+//        {
+//            tmp1 = str[len - i + j];
+//            str[len - i + j] = 0;
+//            tmp2 = strre[len - j];
+//            strre[len - j] = 0;
+//            if (strcmp(strre + i - j, str + j) == 0)
+//                count = len - i;
+//            str[len - i + j] = tmp1;
+//            strre[len - j] = tmp2;
+//            if (count != 0)
+//                break;
+//        }
+//        if (count != 0)
+//            break;
+//    }
+//    printf("%d\n", count);
+//    return 0;
+//}
 
-#include<string.h>
 
-void reverse(char* p)
-{
-	int left = 0;
-	int right = strlen(p) - 1;
-	while (left < right)
-	{
-		char tmp = p[left];
-		p[left] = p[right];
-		p[right] = tmp;
-		left++;
-		right--;
-	}
-}
 
-int main()
-{
-	char str[2501] = { 0 };
-	gets(str);
-	int count = 0;
-	int i = 0;
-	for (i = 0; i < strlen(str); i++)
-	{
-		char tmp1[2501] = { 0 };
-		int j = 0;
-		for (j = 1; j <= strlen(str) - i; j++)
-		{
-			strncpy(tmp1, &str[i], j);
-			char tmp2[2501] = { 0 };
-			strcpy(tmp2, tmp1);
-			reverse(tmp2);
-			if (strcmp(tmp1, tmp2) == 0)
-			{
-				if (strlen(tmp1) > count)
-				{
-					count = strlen(tmp1);
-				}
-			}
-		}
-	}
-	printf("%d\n", count);
-	return 0;
-}
+
+//-----------------------------------------------
+//原理：ip地址的每段可以看成是一个0 - 255的整数，把每段拆分成一个二进制形式组合起来，然后把这个二进制数转变成
+//一个长整数。
+//举例：一个ip地址为10.0.3.193
+//每段数字             相对应的二进制数
+//10                   00001010
+//0                    00000000
+//3                    00000011
+//193                  11000001
+//组合起来即为：00001010 00000000 00000011 11000001, 转换为10进制数就是：167773121，即该IP地址转换后的数字就是它了。
+//数据范围：保证输入的是合法的 IP 序列
+//输入
+//1 输入IP地址
+//2 输入10进制型的IP地址
+//输出
+//1 输出转换成10进制的IP地址
+//2 输出转换后的IP地址
+//
+//#include<string.h>
+//#include<math.h>
+//
+//long long IP_to_IP10(char* p)
+//{
+//
+//	char* left = p + strlen(p) - 1;
+//	char* right = p + strlen(p) - 1;
+//	int IP_2[32] = { 0 };
+//	int i = 0;
+//	while (left >= p)
+//	{
+//		while ((left >= p) && (*left != '.'))
+//		{
+//			left--;
+//		}
+//		int sz = 0;
+//		int ret = 0;
+//		while (left < right)
+//		{
+//			ret += (int)(((*right) - '0') * pow(10, sz++));
+//			right--;
+//		}
+//		int len = 0;
+//		int tmp = ret;
+//		while (tmp)
+//		{
+//			len++;
+//			tmp /= 2;
+//		}
+//		tmp = ret;
+//		int j = 0;
+//		while (j < 8)
+//		{
+//			if (j < len)
+//			{
+//				IP_2[i++] = tmp & 1;
+//				tmp /= 2;
+//			}
+//			else
+//			{
+//				IP_2[i++] = 0;
+//			}
+//			j++;
+//		}
+//		left--;
+//		right = left;
+//	}
+//	long long key = 0;
+//	for (i = 0; i < 32; i++)
+//	{
+//		key += (long long)(IP_2[i] * pow(2, i));
+//	}
+//	return key;
+//}
+//
+//void reverse(int* p, int left, int right)
+//{
+//	while (left < right)
+//	{
+//		int tmp = p[left];
+//		p[left] = p[right];
+//		p[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//
+//void IP10_to_IP(long long IP10)
+//{
+//	int IP_2[32] = { 0 };
+//	long long tmp = IP10;
+//	int i = 0;
+//	while ((i < 32) && (tmp))
+//	{
+//		IP_2[i++] = tmp & 1;
+//		tmp /= 2;
+//	}
+//	int left = 0;
+//	int right = 0;
+//	while (right < 32)
+//	{
+//		int j = 0;
+//		while ((j < 8) && (right < 32))
+//		{
+//			right++;
+//			j++;
+//		}
+//		reverse(IP_2, left, right - 1);
+//		left = right;
+//	}
+//	reverse(IP_2, 0, 31);
+//	i = 0;
+//	int point = 3;
+//	while (i < 32)
+//	{
+//		int j = 0;
+//		int ret = 0;
+//		while ((j < 8) && (i < 32))
+//		{
+//			ret += (int)(IP_2[i++] * pow(2, j));
+//			j++;
+//		}
+//		printf("%d", ret);
+//		if (point--)
+//		{
+//			printf(".");
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	char IP[16] = { 0 };
+//	gets(IP);
+//	long long IP10 = 0;
+//	scanf("%lld", &IP10);
+//	long long key = IP_to_IP10(IP);
+//	printf("%lld\n", key);
+//	IP10_to_IP(IP10);
+//	return 0;
+//}
