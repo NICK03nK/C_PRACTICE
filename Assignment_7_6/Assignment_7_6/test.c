@@ -87,31 +87,74 @@
 
 //-----------------------------------------------
 //模拟实现memcpy
+//
+//#include<assert.h>
+//
+//void* my_memcpy(void* dst, const void* src, size_t num)
+//{
+//	assert(dst && src);
+//	void* start = dst;
+//	while (num--)
+//	{
+//		*(char*)dst = *(char*)src;
+//		dst = (char*)dst + 1;
+//		src = (char*)src + 1;
+//	}
+//	return start;
+//}
+//
+//int main()
+//{
+//	int arr1[] = { 1,2,3,4,5 };
+//	int arr2[10] = { 0 };
+//	my_memcpy(arr2, arr1, 20);
+//	int i = 0;
+//	for (i = 0; i < (sizeof(arr1) / sizeof(arr1[0])); i++)
+//	{
+//		printf("%d ", arr2[i]);
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//模拟实现memmove
 
 #include<assert.h>
 
-void* my_memcpy(void* dst, const void* src, size_t num)
+void* my_memmove(void* dst, const void* src, size_t num)
 {
 	assert(dst && src);
 	void* start = dst;
-	while (num--)
+	if (dst < src)
 	{
-		*(char*)dst = *(char*)src;
-		dst = (char*)dst + 1;
-		src = (char*)src + 1;
+		while (num--)
+		{
+			*(char*)dst = *(char*)src;
+			dst = (char*)dst + 1;
+			src = (char*)src + 1;
+		}
+	}
+	else
+	{
+		while (num--)
+		{
+			*((char*)dst + num) = *((char*)src + num);
+		}
 	}
 	return start;
 }
 
 int main()
 {
-	int arr1[] = { 1,2,3,4,5 };
-	int arr2[10] = { 0 };
-	my_memcpy(arr2, arr1, 20);
+	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	my_memmove(arr + 1, arr + 4, 16);
 	int i = 0;
-	for (i = 0; i < (sizeof(arr1) / sizeof(arr1[0])); i++)
+	for (i = 0; i < 10; i++)
 	{
-		printf("%d ", arr2[i]);
+		printf("%d ", arr[i]);
 	}
 	return 0;
 }
