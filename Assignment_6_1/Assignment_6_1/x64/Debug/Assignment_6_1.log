@@ -1,2 +1,5 @@
 ﻿  test.c
-  Assignment_6_1.vcxproj -> D:\VS 2022\Gitee_warehouse\bit_code\Assignment_6_1\x64\Debug\Assignment_6_1.exe
+D:\VS 2022\GitHub_repository\C_PRACTICE\Assignment_6_1\Assignment_6_1\test.c(19,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\VS 2022\GitHub_repository\C_PRACTICE\Assignment_6_1\Assignment_6_1\test.c(20,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\VS 2022\GitHub_repository\C_PRACTICE\Assignment_6_1\Assignment_6_1\test.c(56,2): warning C4013: “gets”未定义；假设外部返回 int
+  Assignment_6_1.vcxproj -> D:\VS 2022\GitHub_repository\C_PRACTICE\Assignment_6_1\x64\Debug\Assignment_6_1.exe

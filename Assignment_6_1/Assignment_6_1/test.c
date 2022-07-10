@@ -9,63 +9,63 @@
 //AABCD左旋一个字符得到ABCDA
 //AABCD左旋两个字符得到BCDAA
 //AABCD右旋一个字符得到DAABC
-//
-//#include<string.h>
-//
-//int Is_same_str(char* ps1, char* ps2)
-//{
-//	char* p1 = ps1;
-//	char* p2 = ps2;
-//	int len1 = strlen(p1);
-//	int len2 = strlen(p2);
-//	strncat(p1, p1, len1);
-//	if (len1 != len2)
-//	{
-//		return 0;
-//	}
-//	while (*p1 != '\0')
-//	{
-//		if (*p1 == *p2)
-//		{
-//			p2++;
-//			p1++;
-//		}
-//		else
-//		{
-//			p1++;
-//		}
-//		if (*p2 == '\0')
-//		{
-//			break;
-//		}
-//	}
-//	if (*p2 == '\0')
-//	{
-//		return 1;
-//	}
-//	else
-//	{
-//		return 0;
-//	}
-//}
-//
-//int main()
-//{
-//	char s1[20] = { 0 };
-//	char s2[20] = { 0 };
-//	gets(s1);
-//	gets(s2);
-//	int ret = Is_same_str(s1, s2);
-//	if (ret)
-//	{
-//		printf("Is the same string\n");
-//	}
-//	else
-//	{
-//		printf("Isn't the same string\n");
-//	}
-//	return 0;
-//}
+
+#include<string.h>
+
+int Is_same_str(char* ps1, char* ps2)
+{
+	char* p1 = ps1;
+	char* p2 = ps2;
+	int len1 = strlen(p1);
+	int len2 = strlen(p2);
+	strncat(p1, p1, len1);
+	if (len1 != len2)
+	{
+		return 0;
+	}
+	while (*p1 != '\0')
+	{
+		if (*p1 == *p2)
+		{
+			p2++;
+			p1++;
+		}
+		else
+		{
+			p1++;
+		}
+		if (*p2 == '\0')
+		{
+			break;
+		}
+	}
+	if (*p2 == '\0')
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int main()
+{
+	char s1[20] = { 0 };
+	char s2[20] = { 0 };
+	gets(s1);
+	gets(s2);
+	int ret = Is_same_str(s1, s2);
+	if (ret)
+	{
+		printf("Is the same string\n");
+	}
+	else
+	{
+		printf("Isn't the same string\n");
+	}
+	return 0;
+}
 
 
 
@@ -178,62 +178,62 @@
 
 //-----------------------------------------------
 //用函数指针数组实现简单计算器
-
-void menu()
-{
-	printf("************************************\n");
-	printf("*****     1.Add      2.Sub     *****\n");
-	printf("*****     3.Mul      4.Div     *****\n");
-	printf("*****          0.Exit          *****\n");
-	printf("************************************\n");
-}
-
-int Add(int x, int y)
-{
-	return x + y;
-}
-
-int Sub(int x, int y)
-{
-	return x - y;
-}
-
-int Mul(int x, int y)
-{
-	return x * y;
-}
-
-int Div(int x, int y)
-{
-	return x / y;
-}
-
-int main()
-{
-	int(*pfArr[])(int, int) = { 0,Add,Sub,Mul,Div };
-	int input = 0;
-	do
-	{
-		menu();
-		printf("请选择程序>>");
-		scanf("%d", &input);
-		if (input == 0)
-		{
-			printf("<退出计算器>\n");
-		}
-		else if (input >= 1 && input <= 4)
-		{
-			int x = 0;
-			int y = 0;
-			printf("请输入两个操作数>>");
-			scanf("%d %d", &x, &y);
-			int ret = pfArr[input](x, y);
-			printf("%d\n", ret);
-		}
-		else
-		{
-			printf("<选择错误，请重新选择>\n");
-		}
-	} while (input);
-	return 0;
-}
+//
+//void menu()
+//{
+//	printf("************************************\n");
+//	printf("*****     1.Add      2.Sub     *****\n");
+//	printf("*****     3.Mul      4.Div     *****\n");
+//	printf("*****          0.Exit          *****\n");
+//	printf("************************************\n");
+//}
+//
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
+//
+//int main()
+//{
+//	int(*pfArr[])(int, int) = { 0,Add,Sub,Mul,Div };
+//	int input = 0;
+//	do
+//	{
+//		menu();
+//		printf("请选择程序>>");
+//		scanf("%d", &input);
+//		if (input == 0)
+//		{
+//			printf("<退出计算器>\n");
+//		}
+//		else if (input >= 1 && input <= 4)
+//		{
+//			int x = 0;
+//			int y = 0;
+//			printf("请输入两个操作数>>");
+//			scanf("%d %d", &x, &y);
+//			int ret = pfArr[input](x, y);
+//			printf("%d\n", ret);
+//		}
+//		else
+//		{
+//			printf("<选择错误，请重新选择>\n");
+//		}
+//	} while (input);
+//	return 0;
+//}
