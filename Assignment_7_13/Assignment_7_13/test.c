@@ -77,30 +77,108 @@
 
 //-----------------------------------------------
 //模拟实现strncat
+//
+//#include<assert.h>
+//
+//char* my_strncat(char* dst, const char* src, size_t num)
+//{
+//	assert(dst && src);
+//	char* start = dst;
+//	while (*dst)
+//	{
+//		dst++;
+//	}
+//	while (num-- && *src)
+//	{
+//		*dst++ = *src++;
+//	}
+//	*dst = '\0';
+//	return start;
+//}
+//
+//int main()
+//{
+//	char str1[30] = "hello ";
+//	char str2[] = "nick!";
+//	my_strncat(str1, str2, 3);
+//	printf("%s", str1);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//模拟实现atoi
 
 #include<assert.h>
+#include<ctype.h>
+#include<limits.h>
 
-char* my_strncat(char* dst, const char* src, size_t num)
+enum Value
 {
-	assert(dst && src);
-	char* start = dst;
-	while (*dst)
+	INVALID,
+	VALID
+}val = INVALID;
+
+int my_atoi(const char* str)
+{
+	assert(str);
+	if (*str == '\0')
 	{
-		dst++;
+		return 0;
 	}
-	while (num-- && *src)
+	while (isspace(*str))
 	{
-		*dst++ = *src++;
+		str++;
 	}
-	*dst = '\0';
-	return start;
+	int flag = 1;
+	if (*str == '+')
+	{
+		flag = 1;
+		str++;
+	}
+	else if (*str == '-')
+	{
+		flag = -1;
+		str++;
+	}
+	long long ret = 0;
+	while (*str)
+	{
+		if (isdigit(*str))
+		{
+			ret = ret * 10 + flag * (*str - '0');
+			if (ret > INT_MAX || ret < INT_MIN)
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return (int)ret;
+		}
+		str++;
+	}
+	if (*str == '\0')
+	{
+		val = VALID;
+	}
+	return (int)ret;
 }
 
 int main()
 {
-	char str1[30] = "hello ";
-	char str2[] = "nick!";
-	my_strncat(str1, str2, 3);
-	printf("%s", str1);
+	char str[20] = { 0 };
+	gets(str);
+	int ret = my_atoi(str);
+	if (val)
+	{
+		printf("合法转换：%d\n", ret);
+	}
+	else
+	{
+		printf("非法转换：%d\n", ret);
+	}
 	return 0;
 }
