@@ -1844,38 +1844,131 @@
 //输入一个int整数
 //输出描述：
 //输出返回的int值
+//
+//#include<stdio.h>
+//#include<string.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	long long line_a[5] = { 0,1 };
+//	int i = 0;
+//	int j = 0;
+//	int end = 5, a, b, c;
+//	for (i = 1; i < n; i++)
+//	{
+//		a = line_a[0], b = line_a[1], c = line_a[2];
+//		for (j = 2; j < end; j++)
+//		{
+//			line_a[j] = a + b + c;
+//			a = b, b = c, c = line_a[j + 1];
+//		}
+//	}
+//	int ret = 0;
+//	int flag = 1;
+//	for (i = 2; i < end; i++)
+//	{
+//		if (line_a[i] % 2 == 0)
+//		{
+//			flag = 0;
+//			ret = i;
+//			break;
+//		}
+//	}
+//	if (flag)
+//	{
+//		ret = -1;
+//	}
+//	if (n < 3)
+//		printf("%d\n", -1);
+//	else
+//		printf("%d\n", ret);
+//	return 0;
+//}
 
-int main()
-{
-	int arr[20][20] = { 0 };
-	int n = 0;
-	scanf("%d", &n);
-	int i = 0;
-	int j = 0;
-	for (i = 1; i <= n; i++)
-	{
-		arr[i][1] = 1;
-	}
-	for (i = 2; i <= n; i++)
-	{
-		for (j = 2; j < 2 * i; j++)
-		{
-			arr[i][j] = arr[i - 1][j] + arr[i - 1][j - 1] + arr[i - 1][j - 2];
-		}
-	}
-	int flag = 1;
-	for (i = n, j = 2; j < 2 * n; j++)
-	{
-		if (arr[i][j] % 2 == 0)
-		{
-			flag = 0;
-			break;
-		}
-	}
-	if (flag)
-	{
-		j = -1;
-	}
-	printf("%d\n", j);
-	return 0;
-}
+
+
+
+//-----------------------------------------------
+//输出 1 到n之间 的与 7 有关数字的个数。
+//一个数与7有关是指这个数是 7 的倍数，或者是包含 7 的数字（如 17 ，27 ，37 ... 70 ，71 ，72 ，73...）
+//数据范围：1≤n≤30000
+//输入描述：
+//一个正整数 n (n 不大于 30000)
+//输出描述：
+//一个整数，表示1到n之间的与7有关的数字个数
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int i = 0;
+//	int count = 0;
+//	for (i = 1; i <= n; i++)
+//	{
+//		int flag = 0;
+//		int tmp = i;
+//		while (tmp)
+//		{
+//			if (tmp % 10 == 7)
+//			{
+//				flag = 1;
+//				break;
+//			}
+//			tmp /= 10;
+//		}
+//		if (i % 7 == 0)
+//		{
+//			count++;
+//		}
+//		else if (flag)
+//		{
+//			count++;
+//		}
+//	}
+//	printf("%d\n", count);
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//完全数（Perfect number），又称完美数或完备数，是一些特殊的自然数。
+//它所有的真因子（即除了自身以外的约数）的和（即因子函数），恰好等于它本身。
+//例如：28，它有约数1、2、4、7、14、28，除去它本身28外，其余5个数相加，1 + 2 + 4 + 7 + 14 = 28。
+//输入n，请输出n以内(含n)完全数的个数。
+//数据范围：1≤n≤5 * 10^5
+//输入描述：
+//输入一个数字n
+//输出描述：
+//输出不超过n的完全数的个数
+//
+//#include<math.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int i = 0;
+//	int j = 0;
+//	int count = 0;
+//	for (i = 2; i <= n; i++)
+//	{
+//		int sum = 0;
+//		for (j = 2; j <= sqrt(i); j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				sum += j + i / j;
+//			}
+//		}
+//		if (sum + 1 == i)
+//		{
+//			count++;
+//		}
+//	}
+//	printf("%d\n", count);
+//	return 0;
+//}
