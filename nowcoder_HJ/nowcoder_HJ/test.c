@@ -1972,3 +1972,94 @@
 //	printf("%d\n", count);
 //	return 0;
 //}
+
+
+
+
+//-----------------------------------------------
+//输入n个整数，找出其中最小的k个整数并按升序输出
+//本题有多组输入样例
+//数据范围：1≤n≤1000，输入的整数满足：1≤val≤10000
+//输入描述：
+//第一行输入两个整数n和k
+//第二行输入一个整数数组
+//输出描述：
+//从小到大输出最小的k个整数，用空格分开。
+//
+//#include<stdlib.h>
+//
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return (*(int*)e1 - *(int*)e2);
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d %d", &n, &k);
+//	int arr[1000] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	qsort(arr, n, sizeof(arr[0]), cmp_int);
+//	for (i = 0; i < k; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+
+
+
+//-----------------------------------------------
+//找出字符串中第一个只出现一次的字符
+//数据范围：输入的字符串长度满足：1≤n≤1000
+//输入描述：
+//输入一个非空字符串
+//输出描述：
+//输出第一个只出现一次的字符，如果不存在输出-1
+
+#include<string.h>
+
+int main()
+{
+	char str[1001] = { 0 };
+	gets(str);
+	int ascii[128] = { 0 };
+	int i = 0;
+	for (i = 0; i < strlen(str); i++)
+	{
+		ascii[str[i]]++;
+	}
+	int count[1000] = { 0 };
+	int j = 0;
+	for (i = 0; i < strlen(str); i++)
+	{
+		for (j = 0; j < 128; j++)
+		{
+			if (str[i] == j)
+			{
+				count[i] = ascii[j];
+			}
+		}
+	}
+	int flag = 1;
+	for (i = 0; i < strlen(str); i++)
+	{
+		if (count[i] == 1)
+		{
+			flag = 0;
+			printf("%c\n", str[i]);
+			break;
+		}
+	}
+	if (flag)
+	{
+		printf("-1\n");
+	}
+	return 0;
+}
