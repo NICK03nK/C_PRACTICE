@@ -2022,44 +2022,75 @@
 //输入一个非空字符串
 //输出描述：
 //输出第一个只出现一次的字符，如果不存在输出-1
+//
+//#include<string.h>
+//
+//int main()
+//{
+//	char str[1001] = { 0 };
+//	gets(str);
+//	int ascii[128] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < strlen(str); i++)
+//	{
+//		ascii[str[i]]++;
+//	}
+//	int count[1000] = { 0 };
+//	int j = 0;
+//	for (i = 0; i < strlen(str); i++)
+//	{
+//		for (j = 0; j < 128; j++)
+//		{
+//			if (str[i] == j)
+//			{
+//				count[i] = ascii[j];
+//			}
+//		}
+//	}
+//	int flag = 1;
+//	for (i = 0; i < strlen(str); i++)
+//	{
+//		if (count[i] == 1)
+//		{
+//			flag = 0;
+//			printf("%c\n", str[i]);
+//			break;
+//		}
+//	}
+//	if (flag)
+//	{
+//		printf("-1\n");
+//	}
+//	return 0;
+//}
 
-#include<string.h>
+
+
+
+//-----------------------------------------------
+//输入一个正整数，计算它在二进制下的1的个数。
+//注意多组输入输出
+//数据范围：1≤n≤2^31−1
+//输入描述：
+//输入一个整数
+//输出描述：
+//计算整数二进制中1的个数
 
 int main()
 {
-	char str[1001] = { 0 };
-	gets(str);
-	int ascii[128] = { 0 };
-	int i = 0;
-	for (i = 0; i < strlen(str); i++)
+	int n = 0;
+	while (scanf("%d", &n) != EOF)
 	{
-		ascii[str[i]]++;
-	}
-	int count[1000] = { 0 };
-	int j = 0;
-	for (i = 0; i < strlen(str); i++)
-	{
-		for (j = 0; j < 128; j++)
+		int count = 0;
+		int i = 0;
+		for (i = 0; i < 32; i++)
 		{
-			if (str[i] == j)
+			if ((n >> i) & 1)
 			{
-				count[i] = ascii[j];
+				count++;
 			}
 		}
-	}
-	int flag = 1;
-	for (i = 0; i < strlen(str); i++)
-	{
-		if (count[i] == 1)
-		{
-			flag = 0;
-			printf("%c\n", str[i]);
-			break;
-		}
-	}
-	if (flag)
-	{
-		printf("-1\n");
+		printf("%d\n", count);
 	}
 	return 0;
 }
